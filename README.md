@@ -14,15 +14,20 @@ Barometric pressure sensor connected to Flight computer over I2C.
 
 
 ## Structure
-Plywood fins, cardboard aft airframe. Avionics bay, nosecone, forward airframe, motor retainer, 
+Plywood: fins, centering ring  
+Cardboard: aft airframe,  motor tube  
+PetG: Avionics bay, nosecone, forward airframe, motor retainer, rail buttons
 
 
 ## Software
 
 #### State machine:
 High powered rockets go through 4 states: ground idle, powered ascent, unpowered ascent, descent. 
-During ground idle both sensors are initialized and begin returning data. The Kalman filter is intiailized and begins filtering altitude and vertial acceleration returned from the barometric pressure sensor and accelerometer respectively to return position velocity and acceleration. Leds are lit to elucidate the state on the launch rail. The initial altitude is recorded for reference.
-The rocket enters powered ascent when it has detected sufficient vertical acceleration and sufficient altitude relative to the initial altitude. The rocket enters unpowered ascent when the vertical acceleration becomes negative. The ejection charge for the drogue parachute is fired when vertical velocity is zero. For safety the ejection charge can only be fired above a certain altitude. The rocket enters descent when its velocity becomes negative and for safety above a certain altitude. During descent the ejection charge for the main parachute is fired at an 300m above initial altitude as determined by openrocket simulations. 
+    
+- During ground idle both sensors are initialized and begin returning data. The Kalman filter is intiailized and begins filtering altitude and vertial acceleration returned from the barometric pressure sensor and accelerometer respectively to return position velocity and acceleration. Leds are lit to elucidate the state on the launch rail. The initial altitude is recorded for reference.  
+- The rocket enters powered ascent when it has detected sufficient vertical acceleration and sufficient altitude relative to the initial altitude.   
+- The rocket enters unpowered ascent when the vertical acceleration becomes negative. The ejection charge for the drogue parachute is fired when vertical velocity is zero. For safety the ejection charge can only be fired above a certain altitude.    
+- The rocket enters descent when its velocity becomes negative and for safety above a certain altitude. During descent the ejection charge for the main parachute is fired at an 300m above initial altitude as determined by openrocket simulations. 
 
 
 #### Kalman Filter:
