@@ -1,0 +1,18 @@
+|p|   p + vt + .5at^2
+|v| = v + at
+
+noise = sqrt(bandwith) * datasheet noise 
+= sqrt(166.66) * 99*10-6 G
+
+noise (bmp180) = .17 m
+
+F=|1 t|  State evolution matrix
+  |0 1| 
+B=|.5t^2| COmmand matrix
+  |  t  |
+u=|a| Command Vector
+
+
+m_p = .1
+m_v = .1
+m_a = .8
