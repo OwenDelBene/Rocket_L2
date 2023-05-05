@@ -8,6 +8,17 @@
 
 using namespace BLA;
 
+//Kalman filter constants
+const int N_state = 3; //state vector for pos, vel, accel
+const int N_obs = 2; //observing pos, accel
+
+const float n_p = .17;
+const float n_a = .12;
+
+const float m1 = 0.1;
+const float m2 = 0.1;
+const float m3 = 0.8;
+
 
 template<int dim, class ElemT> struct Symmetric{
   mutable ElemT m[dim*(dim+1)/2];
